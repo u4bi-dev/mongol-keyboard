@@ -26,30 +26,32 @@ export class MainComponent implements OnInit {
     this.hintArray = document.querySelectorAll('.key.letter');
     this.quizLight(this.info.tick);
 
-    window.addEventListener('keydown', this.sendKey);
-    window.addEventListener('keyup', this.outKey);
+    window.addEventListener('keydown', (e) =>{
+      console.log('send');
+      let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+      if(!key) return;
+
+      console.log(key.textContent);
+      console.log(this.info.tick);
+
+    });
+
+    window.addEventListener('keyup', (e) =>{
+      console.log('out');
+      let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+      if(!key) return;
+
+      console.log(key);
+
+      key.classList.remove('sendO');
+      key.classList.remove('sendO');
+    });
   }
 
   ngOnInit() { 
     console.log(this.textArray);
     console.log(this.info.leftValue);
     console.log(this.style.un.fontSize);
-  }
-
-  sendKey(e : any) : void{
-    console.log('send');
-    let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    if(!key) return;
-    
-    console.log(key);
-  }
-  
-  outKey(e : any) : void{
-    console.log('out');
-    let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    if(!key) return;
-
-    console.log(key);
   }
   
   quizLight(num :number) : void{
