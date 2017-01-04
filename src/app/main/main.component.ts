@@ -37,13 +37,16 @@ export class MainComponent implements OnInit {
       audio.play();
 
       if(key.textContent != this.textArray[this.info.tick])key.classList.add('sendX');
-      else{
-        key.classList.add('sendO');
-    
-        let word = document.getElementById('word');
-        this.info.wordLeft-=this.info.leftValue;
+      else{ 
+        let word = document.getElementById('word'); 
+        if(this.info.tick == this.textArray.length-1){
+          this.info.tick=-1;
+          this.info.wordLeft=0;
+        }else{
+          key.classList.add('sendO');
+          this.info.wordLeft-=this.info.leftValue;
+        }
         word.style.left=this.info.wordLeft+'px';
-    
         this.info.tick++;
         this.quizLight(this.info.tick);
       }
