@@ -12,7 +12,7 @@ export class MainComponent implements OnInit {
   textArray : string[];
 
   constructor() {
-    let text = 'asdfasdf';
+    let text = 'ӨСЬВЗАШЕЭНГЮЧРЁУҮЖЯХПЩЙИТЫФЦЛДОМБ';
     this.textArray = text.split("");
 
     this.info = {wordLeft:0,leftValue:150,tick:0,temp:null};
