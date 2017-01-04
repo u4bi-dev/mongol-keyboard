@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { RankViewComponent } from './main/rank-view/rank-view.component';
 import { StatsViewComponent } from './main/stats-view/stats-view.component';
 import { LsComponent } from './main/ls/ls.component';
+import { GameMenuComponent } from './game-menu/game-menu.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LsComponent } from './main/ls/ls.component';
     MainComponent,
     RankViewComponent,
     StatsViewComponent,
-    LsComponent
+    LsComponent,
+    GameMenuComponent
   ],
   imports: [
     BrowserModule,
