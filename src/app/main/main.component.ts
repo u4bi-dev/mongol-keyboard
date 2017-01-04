@@ -27,24 +27,29 @@ export class MainComponent implements OnInit {
     this.quizLight(this.info.tick);
 
     window.addEventListener('keydown', (e) =>{
-      console.log('send');
       let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
       if(!key) return;
 
-      console.log(key.textContent);
-      console.log(this.info.tick);
+      if(key.textContent != this.textArray[this.info.tick])key.classList.add('sendX');
+      else{
+        key.classList.add('sendO');
+    
+        let word = document.getElementById('word');
+        this.info.wordLeft-=this.info.leftValue;
+        word.style.left=this.info.wordLeft+'px';
+    
+        this.info.tick++;
+        this.quizLight(this.info.tick);
+      }
 
     });
 
     window.addEventListener('keyup', (e) =>{
-      console.log('out');
       let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
       if(!key) return;
 
-      console.log(key);
-
       key.classList.remove('sendO');
-      key.classList.remove('sendO');
+      key.classList.remove('sendX');
     });
   }
 
