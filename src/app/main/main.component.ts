@@ -57,6 +57,25 @@ export class MainComponent implements OnInit {
   }
   
   quizLight(num :number) : void{
-
+    var unNum =num-1;
+  
+    for(let i=0; i<this.hintArray.length; i++){
+      if(this.nodeTable.rows[0].cells[num].innerText == this.hintArray[i].innerText){
+      
+        if(this.info.temp != null)this.hintArray[this.info.temp].style.color='black';
+        
+        this.hintArray[i].style.color='red';
+        this.info.temp=i;
+      }
+    }
+    
+    if(num != 0){
+      this.nodeTable.rows[0].cells[unNum].style.border=this.style.un.border;
+      this.nodeTable.rows[0].cells[unNum].style.boxShadow =this.style.un.boxShadow;
+      this.nodeTable.rows[0].cells[unNum].style.fontSize =this.style.un.fontSize;
+    }
+    this.nodeTable.rows[0].cells[num].style.border=this.style.now.border;
+    this.nodeTable.rows[0].cells[num].style.boxShadow =this.style.now.boxShadow;
+    this.nodeTable.rows[0].cells[num].style.fontSize =this.style.now.fontSize;
   }
 }
