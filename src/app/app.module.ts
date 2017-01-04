@@ -5,11 +5,17 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
+import { RankViewComponent } from './main/rank-view/rank-view.component';
+import { StatsViewComponent } from './main/stats-view/stats-view.component';
+import { LsComponent } from './main/ls/ls.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    RankViewComponent,
+    StatsViewComponent,
+    LsComponent
   ],
   imports: [
     BrowserModule,
