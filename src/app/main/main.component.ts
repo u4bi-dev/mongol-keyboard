@@ -29,10 +29,10 @@ export class MainComponent implements OnInit {
     this.quizLight(this.info.tick);
 
     window.addEventListener('keydown', (e) =>{
-      let audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      let audio = <HTMLAudioElement>document.querySelector(`audio[data-key="${e.keyCode}"]`);
       let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
       if(!key) return;
-      
+     
       audio.currentTime = 0;
       audio.play();
 
