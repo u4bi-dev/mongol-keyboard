@@ -20,6 +20,9 @@ export class MainComponent implements OnInit {
       un:{border:'0',boxShadow:'none',fontSize:'5rem'},
       now:{border:'1px solid red',boxShadow:'0 0 50px 0 red',fontSize:'12rem'}
     };
+    
+    this.nodeTable = document.querySelector('table');
+    this.quizLight(this.info.tick);
 
     window.addEventListener('keydown', this.sendKey);
     window.addEventListener('keyup', this.outKey);
@@ -31,11 +34,25 @@ export class MainComponent implements OnInit {
     console.log(this.style.un.fontSize);
   }
 
-  sendKey() : void{
+  sendKey(e : any) : void{
     console.log('send');
+    let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if(!key) return;
+    
+    console.log(key);
   }
   
-  outKey() : void{
+  outKey(e : any) : void{
     console.log('out');
+    let key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if(!key) return;
+
+    console.log(key);
+  }
+  
+  quizLight(num :number) : void{
+    console.log(num);
+    let hint = document.querySelectorAll('.key.letter');
+    console.log(hint);
   }
 }
