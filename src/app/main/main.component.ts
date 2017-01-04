@@ -9,6 +9,7 @@ export class MainComponent implements OnInit {
   info : any;
   style : any;
   nodeTable : any;
+  hintArray : any;
   textArray : string[];
 
   constructor() {
@@ -22,6 +23,7 @@ export class MainComponent implements OnInit {
     };
     
     this.nodeTable = document.querySelector('table');
+    this.hintArray = document.querySelectorAll('.key.letter');
     this.quizLight(this.info.tick);
 
     window.addEventListener('keydown', this.sendKey);
@@ -52,7 +54,6 @@ export class MainComponent implements OnInit {
   
   quizLight(num :number) : void{
     console.log(num);
-    let hint = document.querySelectorAll('.key.letter');
-    console.log(hint);
+    console.log(this.hintArray);
   }
 }
