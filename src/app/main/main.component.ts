@@ -12,7 +12,9 @@ export class MainComponent implements OnInit {
   hintArray : any;
   textArray : string[];
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit() { 
     let text = 'ӨСЬВЗАШЕЭНГЮЧРЁУҮЖЯХПЩЙИТЫФЦЛДОМБ';
     this.textArray = text.split("");
 
@@ -51,16 +53,10 @@ export class MainComponent implements OnInit {
       key.classList.remove('sendO');
       key.classList.remove('sendX');
     });
-  }
 
-  ngOnInit() { 
-    console.log(this.textArray);
-    console.log(this.info.leftValue);
-    console.log(this.style.un.fontSize);
   }
   
   quizLight(num :number) : void{
-    console.log(num);
-    console.log(this.hintArray);
+
   }
 }
